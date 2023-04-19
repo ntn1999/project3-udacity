@@ -1,15 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
+import { CartItem } from 'src/app/models/model';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
+  cartList: CartItem[] = [];
+  name = '';
+  address = '';
+  cardNumber = '';
+  total = 0;
 
-  constructor() { }
+  constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit() {
+    this.cartList = this.productService.cartList;
+    this.total = this.getTotal(this.cartList);
   }
 
+  onSubmit() {
+    const navigationData = { total: this.total, name: this.name };
+    this.router.navigate(['/confirmation'], { state: navigationData });
+    this.productService.clearCart();
+  }
+
+  changeAmount(item: CartItem) {
+    this.total = this.getTotal(this.cartList);
+  }
+
+  getTotal(list: CartItem[]) {
+    let total = 0;
+    list.forEach((item) => {
+      total += item.amount * item.price;
+    });
+    return Number(total.toFixed(2));
+  }
 }

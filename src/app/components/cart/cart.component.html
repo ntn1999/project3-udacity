@@ -1,3 +1,74 @@
-<p>
-  cart works!
-</p>
+<div class="cart-container" *ngIf="cartList.length">
+  <div class="cart-item-details">
+    <div *ngFor="let item of cartList" class="cart-item">
+      <img
+        src="{{ item.url }}"
+        alt="{{ item.name }}"
+        width="200"
+        height="300"
+      />
+      <div>
+        <div>{{ item.name }}</div>
+        <div>${{ item.price }}</div>
+        <label for="amount">Amount:</label>
+        <input
+          class="number-input"
+          type="number"
+          name="amount"
+          id="amount"
+          min="0"
+          [(ngModel)]="item.amount"
+          (ngModelChange)="changeAmount(item)"
+        />
+      </div>
+    </div>
+    <div>Total: {{ total }}</div>
+  </div>
+
+  <div class="cart-panel">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-margin">
+        <label for="name">Full Name</label><br />
+        <input
+          type="text"
+          name="name"
+          required
+          minlength="3"
+          placeholder="(minimun 3 characters)"
+          appForbiddenName="name"
+          [(ngModel)]="name"
+        />
+      </div>
+      <div class="form-margin">
+        <label for="address">Address</label><br />
+        <input
+          type="text"
+          name="address"
+          required
+          minlength="6"
+          placeholder="(minimun 6 characters)"
+          appForbiddenName="address"
+          [(ngModel)]="address"
+        />
+      </div>
+      <div class="form-margin">
+        <label for="cardNumber">Credit card number</label><br />
+        <input
+          type="text"
+          name="cardNumber"
+          required
+          minlength="16"
+          placeholder="16-digit number"
+          appForbiddenName="cartNumber"
+          [(ngModel)]="cardNumber"
+        />
+      </div>
+      <span>We'll never share your payment details width anyone else.</span
+      ><br />
+      <button type="submit" [disabled]="form.invalid">Submit</button>
+    </form>
+  </div>
+</div>
+<div class="empty-cart-message" *ngIf="cartList.length === 0">
+  You have no items in your cart!
+</div>
