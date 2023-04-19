@@ -1,5 +1,6 @@
 img {
   width: 100px;
+  height: 150px;
   border-radius: 10px;
 }
 
@@ -15,7 +16,7 @@ img {
 
 .cart-item-details {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: left;
   margin-left: 80px;
@@ -42,4 +43,16 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 64px;
+}
+
+.input-form {
+  border-radius: 4px;
+  border: 1px solid;
+  padding: 4px 12px;
+  width: 350px;
+}
+
+.commit {
+  font-size: 14px;
+  display: block;
 }

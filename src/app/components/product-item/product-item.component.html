@@ -3,16 +3,16 @@
     <img
       src="{{ product.url }}"
       alt="{{ product.name }}"
-      width="200"
-      height="300"
+      width="100%"
+      height="400"
     />
   </div>
   <div>{{ product.name }}</div>
-  <div>${{ product.price }}</div>
+  <div class="my-3">${{ product.price }}</div>
   <select [(ngModel)]="selectedOption" class="select-input">
     <option *ngFor="let option of options" [value]="option">
       {{ option }}
     </option>
   </select>
-  <button (click)="addToCart(product, selectedOption)">Add to cart</button>
+  <button class="btn btn-primary" (click)="addToCart(product, selectedOption)">Add to cart</button>
 </div>

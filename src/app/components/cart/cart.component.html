@@ -1,16 +1,11 @@
 <div class="cart-container" *ngIf="cartList.length">
   <div class="cart-item-details">
     <div *ngFor="let item of cartList" class="cart-item">
-      <img
-        src="{{ item.url }}"
-        alt="{{ item.name }}"
-        width="200"
-        height="300"
-      />
-      <div>
-        <div>{{ item.name }}</div>
-        <div>${{ item.price }}</div>
-        <label for="amount">Amount:</label>
+      <img src="{{ item.url }}" alt="{{ item.name }}" />
+      <div class="cart-panel">
+        <div class="font-weight-bold mt-2">{{ item.name }}</div>
+        <div class="my-3">${{ item.price }}</div>
+        <label class="mr-2" for="amount">Amount:</label>
         <input
           class="number-input"
           type="number"
@@ -22,14 +17,15 @@
         />
       </div>
     </div>
-    <div>Total: {{ total }}</div>
+    <h4>Total: ${{ total }}</h4>
   </div>
 
-  <div class="cart-panel">
+  <div>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-margin">
-        <label for="name">Full Name</label><br />
+        <label class="font-weight-bold" for="name">Full Name</label><br />
         <input
+          class="input-form"
           type="text"
           name="name"
           required
@@ -40,8 +36,9 @@
         />
       </div>
       <div class="form-margin">
-        <label for="address">Address</label><br />
+        <label class="font-weight-bold" for="address">Address</label><br />
         <input
+          class="input-form"
           type="text"
           name="address"
           required
@@ -52,20 +49,24 @@
         />
       </div>
       <div class="form-margin">
-        <label for="cardNumber">Credit card number</label><br />
+        <label class="font-weight-bold" for="cardNumber"
+          >Credit card number</label
+        ><br />
         <input
+          class="input-form"
           type="text"
           name="cardNumber"
           required
           minlength="16"
-          placeholder="16-digit number"
+          placeholder="(16-digit number)"
           appForbiddenName="cartNumber"
           [(ngModel)]="cardNumber"
         />
       </div>
-      <span>We'll never share your payment details width anyone else.</span
-      ><br />
-      <button type="submit" [disabled]="form.invalid">Submit</button>
+      <span class="commit form-margin">We'll never share your payment details width anyone else.</span>
+      <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+        Submit
+      </button>
     </form>
   </div>
 </div>

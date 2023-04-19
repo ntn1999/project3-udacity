@@ -1,11 +1,15 @@
 img {
   border-radius: 10px;
   width: 320px;
+  height: 500px;
 }
 
 .select-input {
   width: 108px;
   margin-bottom: 8px;
+  height: 36px;
+  border-radius: 4px;
+  padding-left: 8px;
 }
 
 .detail-container {
@@ -22,8 +26,5 @@ img {
 
 .back-link {
   margin-top: 8px;
-}
-
-.button-add {
-  display: block;
+  text-decoration: none;
 }

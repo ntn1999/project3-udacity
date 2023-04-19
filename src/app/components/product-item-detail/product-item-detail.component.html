@@ -3,22 +3,20 @@
     <img
       src="{{ product.url }}"
       alt="{{ product.name }}"
-      width="200"
-      height="300"
     />
   </div>
-  <div class="detail-item">
-    <div>{{ product.name }}</div>
-    <div>${{ product.price }}</div>
-    <div>${{ product.description }}</div>
+  <div class="info-item">
+    <h1>{{ product.name }}</h1>
+    <div class="my-3">${{ product.price }}</div>
+    <div class="mb-2">{{ product.description }}</div>
     <select [(ngModel)]="selectedOption" class="select-input">
       <option *ngFor="let option of options" [value]="option">
         {{ option }}
       </option>
     </select>
-    <button class="button-add" (click)="addToCart(product, selectedOption)">
+    <button class="btn btn-primary d-block mb-2" (click)="addToCart(product, selectedOption)">
       Add to cart
     </button>
-    <a class="back-link" routerLink="/">Back to product list</a>
+    <a class="back-link" routerLink="/"><i class="bi bi-arrow-left"></i> Back to product list</a>
   </div>
 </div>
