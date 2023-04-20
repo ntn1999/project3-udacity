@@ -10,10 +10,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .confirmation-header {
-  color: #33e5bc
+  color: #33e5bc;
+  margin-bottom: 30px;
 }
 
 .confirmation-item {

@@ -6,6 +6,15 @@ MyStore is Angular application that allows users to view a list of available pro
 
 To use these files, simply merge the folders into the root directory of your scaffolded Angular application.
 
+## Installation
+    Clone the repository:
+    git clone https://github.com/ntn1999/project3-udacity.git
+    Install the required dependencies:
+    npm install
+
+## Launch
+    Run app:
+    ng serve --port 3000
 ## Project Instructions
 
 #### Project introduction: MyStore

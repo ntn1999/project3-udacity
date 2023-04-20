@@ -1,11 +1,22 @@
 <div class="confirmation-container">
-  <div class="confirmation-header">Success!</div>
+  <h1 class="confirmation-header">Success!<i class="bi bi-check"></i></h1>
   <div class="confirmation-items">
-    <div class="confirmation-items">Thank you, {{ name }}!</div>
-    <div class="confirmation-items">Your ${{ total }} order is confirmed!</div>
+    <div class="confirmation-items">
+      <div class="d-flex">
+        Thank you,&nbsp;<span class="font-weight-bold d-inline"
+          >{{ name }}!</span
+        >
+      </div>
+    </div>
+    <div class="confirmation-items">
+      <div class="d-flex">
+        Your&nbsp;<span class="font-weight-bold d-inline">${{ total }}</span
+        >&nbsp;order is confirmed!
+      </div>
+    </div>
     <div class="confirmation-items">
       Please allow 1-3 business day(s) for shipping.
     </div>
-    <button routerLink="/">Back to product list</button>
+    <button class="btn btn-primary" routerLink="/">Back to product list</button>
   </div>
 </div>
