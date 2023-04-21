@@ -61,6 +61,7 @@
           placeholder="(16-digit number)"
           appForbiddenName="cartNumber"
           [(ngModel)]="cardNumber"
+          (keypress)="onCardNumberChange($event)"
         />
       </div>
       <span class="commit form-margin">We'll never share your payment details width anyone else.</span>

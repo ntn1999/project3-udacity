@@ -17,4 +17,8 @@ export class ProductListComponent implements OnInit {
       this.productList = res;
     });
   }
+
+  addToCart(item) {
+    this.productService.cartList.push(item);
+  }
 }

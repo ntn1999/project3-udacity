@@ -30,6 +30,10 @@ export class CartComponent implements OnInit {
 
   changeAmount(item: CartItem) {
     this.total = this.getTotal(this.cartList);
+    if (item.amount === 0) {
+      this.productService.removeItem(item);
+      this.cartList = this.productService.cartList;
+    }
   }
 
   getTotal(list: CartItem[]) {
@@ -38,5 +42,11 @@ export class CartComponent implements OnInit {
       total += item.amount * item.price;
     });
     return Number(total.toFixed(2));
+  }
+
+  onCardNumberChange(e) {
+    const value = e.key;
+    const pattern = /[0-9]/;
+    return pattern.test(value);
   }
 }
